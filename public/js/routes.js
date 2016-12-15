@@ -4,9 +4,10 @@
 'use strict';
 
 angular.module("repred")
-    .config(['$routeProvider',function($routeProvider) {
+    .config(['$routeProvider', '$locationProvider',function($routeProvider, $locationProvider) {
+        $locationProvider.html5Mode(true);
         $routeProvider
-            .when('/', {
+            .when('/dashboard', {
                 templateUrl : 'view/dashboard.html',
                 controller : 'dbctrl'
             })
