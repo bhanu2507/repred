@@ -6,7 +6,7 @@
 var gulp = require('gulp');
 var browserSync = require('browser-sync');
 var nodemon = require('gulp-nodemon');
-
+//var historyApiFallback = require('connect-history-api-fallback');
 
 gulp.task('default', ['browser-sync'], function () {
 });

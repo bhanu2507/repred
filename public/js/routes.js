@@ -5,7 +5,9 @@
 
 angular.module("repred")
     .config(['$routeProvider', '$locationProvider',function($routeProvider, $locationProvider) {
-        $locationProvider.html5Mode(true);
+        $locationProvider
+            .html5Mode(false)
+            .hashPrefix('!');
         $routeProvider
             .when('/dashboard', {
                 templateUrl : 'view/dashboard.html',

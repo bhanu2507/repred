@@ -22,6 +22,11 @@ var bodyParser = require('body-parser');
 var jsonParser = bodyParser.json();
 
 var app = express();
+clist = require('./server/getcustlist');
+pprod = require('./server/predictprodid');
+
+app.get('/getcustlist', clist.getcustlist);
+app.post('/predprod', pprod.predicted);
 
 
 app.use('/scripts', express.static(__dirname + '/node_modules/'));
@@ -32,12 +37,13 @@ app.get("/",function(req,res){
     res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
-
 // Set port
 port = process.env.PORT || 5000;
 
 // Use public directory for static files
 app.use(express.static(__dirname + '/public'));
+
+
 // Include the routes module
 //require('./app/routes')(app);
 

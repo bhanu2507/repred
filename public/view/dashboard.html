@@ -4,3 +4,78 @@
         <p></p>
     </div>
 </div>
+<div class="container">
+    <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> Select Customer ID
+            <span class="caret"></span></button>
+        <ul class="dropdown-menu" ng-repeat="cust in data.data">
+            <li>{{ cust.CustomerId }}</li>
+        </ul>
+    </div>
+</div>
+
+<div class="container">
+    <div class="form-group">
+        <label>Customer Id</label>
+        <input type="text" class="form-control" ng-model="cust_id" placeholder="Customer ID">
+    </div>
+    <div class="form-group">
+        <label>Customer Age</label>
+        <input type="text" class="form-control" ng-model="cust_age" placeholder="Customer Age">
+    </div>
+    <div class="form-group">
+        <label>Customer Gender</label>
+        <input type="text" class="form-control" ng-model="cust_gender" placeholder="Gender">
+    </div>
+    <div class="form-group">
+        <label>Customer Region</label>
+        <input type="text" class="form-control" ng-model="cust_region" placeholder="Region">
+    </div>
+    <button type="submit" class="btn btn-primary" ng-click="submit()">Get Predicted Products</button>
+    <div ng-hide="!loading">
+        <img src="../img/spinner.gif" height="50" width="50" />
+    </div>
+    <!--div id="rounded" ng-hide="!loading1">
+        <ul>
+            <li>Prediction : <b><h1>{{preddata.Results.output1.value.Values[0][9]}}</h1></b></li>
+            <li>{{preddata.Results.output1.value.ColumnNames[7]}} : {{preddata.Results.output1.value.Values[0][7]}}</li>
+            <li>{{preddata.Results.output1.value.ColumnNames[8]}} : {{preddata.Results.output1.value.Values[0][8]}}</li>
+        </ul></div-->
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="row">
+                <div class="col-sm-3" ng-repeat="prd in preddata.data">
+                    <div class="col-item">
+                        <div class="photo">
+                            <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+                        </div>
+                        <div class="info">
+                            <div class="row">
+                                <div class="price col-md-6">
+                                    <h5>
+                                        {{ prd.ProductId}}</h5>
+                                    <h5 class="price-text-color">
+                                        $199.99</h5>
+                                </div>
+                                <div class="rating hidden-sm col-md-6">
+                                    <i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+                                </i><i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
+                                </i><i class="fa fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="separator clear-left">
+                                <p class="btn-add">
+                                    <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to cart</a></p>
+                                <p class="btn-details">
+                                    <i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
+                            </div>
+                            <div class="clearfix">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
