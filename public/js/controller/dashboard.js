@@ -45,11 +45,16 @@ console.log('error' + error);
                      "\n\n\n\nconfig: " + config);
                      */
                 };
-
+/*
             $scope.update = function(id){
                 console.log(id.age);
-            };
-
+            };*/
         }
-
+        $scope.selected= function(cust){
+            $scope.selectedCust = cust.CustomerId;
+            $scope.cust_id = cust.CustomerId;
+            $scope.cust_age = cust.Age;
+            $scope.cust_gender = cust.Gender;
+            $scope.cust_region = cust.Area;
+        }
     });

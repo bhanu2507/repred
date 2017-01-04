@@ -13,6 +13,10 @@ angular.module("repred")
                 templateUrl : 'view/dashboard.html',
                 controller : 'dbctrl'
             })
+            .when('/moviepred', {
+                templateUrl : 'view/moviepred.html',
+                controller : 'mvctrl'
+            })
             .when('/config', {
                 templateUrl : 'view/config.html',
                 controller : 'configcontroller'

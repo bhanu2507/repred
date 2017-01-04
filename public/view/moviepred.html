@@ -1,6 +1,6 @@
 <div class="jumbotron">
     <div class="container">
-        <h3>Retail Prediction</h3>
+        <h3>Movie Prediction</h3>
         <p></p>
     </div>
 </div>
@@ -9,7 +9,7 @@
         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" >{{ selectedCust }}
             <span class="caret" ></span></button>
         <ul class="dropdown-menu">
-            <li ng-model="selectedCust" ng-click="selected(cust)" ng-repeat="cust in data.data"><a ng-click="dropboxitemselected(cust.CustomerId)">{{ cust.CustomerId }}</a></li>
+            <li ng-model="selectedCust" ng-click="selected(cust)" ng-repeat="cust in data.data"><a ng-click="dropboxitemselected(cust.userId)">{{ cust.userId }}</a></li>
         </ul>
     </div>
 </div>
@@ -24,7 +24,7 @@
         </div>
         <div class="col-xs-6">
             <div class="form-group">
-                <label>Customer Age</label>
+                <label>Age</label>
                 <input type="text" class="form-control" ng-model="cust_age" placeholder="Customer Age">
             </div>
         </div>
@@ -32,19 +32,19 @@
     <div class="row">
         <div class="col-xs-6">
         <div class="form-group">
-            <label>Customer Gender</label>
+            <label>Gender</label>
             <input type="text" class="form-control" ng-model="cust_gender" placeholder="Gender">
         </div>
         </div>
         <div class="col-xs-6">
             <div class="form-group">
-                <label>Customer Region</label>
+                <label>Occupation</label>
                 <input type="text" class="form-control" ng-model="cust_region" placeholder="Region">
             </div>
         </div>
     </div>
 
-    <button type="submit" class="btn btn-primary" ng-click="submit()">Get Predicted Products</button>
+    <button type="submit" class="btn btn-primary" ng-click="submit()">Get Predicted Movies</button>
     <div ng-hide="!loading">
         <img src="../img/spinner.gif" height="50" width="50" />
     </div>
@@ -57,18 +57,19 @@
     <div class="carousel-inner">
         <div class="item active">
             <div class="row">
-                <div class="col-sm-3" ng-repeat="prd in preddata.data">
+                <div class="col-sm-3" ng-repeat="prd in preddata" >
                     <div class="col-item">
                         <div class="photo">
-                            <img src="http://placehold.it/350x260" class="img-responsive" alt="a" />
+                            <img ng-src='https://image.tmdb.org/t/p/w300_and_h450_bestv2{{ prd.poster }}' class="img-responsive" alt="a" style="max-width: 70%;" />
+                            <!--img ng-src="{{getposter()}}" /-->
                         </div>
                         <div class="info">
                             <div class="row">
                                 <div class="price col-md-6">
                                     <h5>
-                                        {{ prd.ProductId}}</h5>
+                                        {{ prd.MovieName}}</h5>
                                     <h5 class="price-text-color">
-                                        {{ prd.Rating}}</h5>
+                                        {{ prd.score}}</h5>
                                 </div>
                                 <div class="rating hidden-sm col-md-6">
                                     <i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
