@@ -1,0 +1,13 @@
+.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+
+.jumbotron {
+    background-color: #9acfea;
+}
+
+.navbar {
+    background-color: #1b6d85;
+}

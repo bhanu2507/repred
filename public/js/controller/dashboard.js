@@ -4,14 +4,10 @@
 
 angular.module('repred')
     .controller('dbctrl', function($scope, $http) {
-/*
-        $http.get('http://110.110.110.164:5001/uniquecustomer')
-            .success(function (data){
-            $scope.customer = data;
-        });*/
+        $scope.itemempty = true;
         $http.get('/getcustlist')
             .then(function (data) {
-                console.log(data);
+                //console.log(data);
                $scope.data = data;
                // console.log('here' + data[0][1].length);
             },function (error){
@@ -31,29 +27,24 @@ console.log('error' + error);
 
             $http.post('/predprod?' + data)
                 .then(function (data) {
-                    console.log(data);
+                    //console.log(data);
                     $scope.loading = false;
                     $scope.loading1 = true;
                     $scope.preddata = data;
-                })
-                ,function(error) {
+                }),function(error) {
                     console.log(error);
-                    /*
-                     $scope.ServerResponse =  htmlDecode("Data: " + data +
-                     "\n\n\n\nstatus: " + status +
-                     "\n\n\n\nheaders: " + header +
-                     "\n\n\n\nconfig: " + config);
-                     */
+
                 };
 /*
             $scope.update = function(id){
                 console.log(id.age);
             };*/
-        }
+        };
         $scope.selected= function(cust){
+            $scope.itemempty = false;
             $scope.selectedCust = cust.CustomerId;
             $scope.cust_id = cust.CustomerId;
-            $scope.cust_age = cust.Age;
+            $scope.cust_age = cust.Age.substring(0,2);
             $scope.cust_gender = cust.Gender;
             $scope.cust_region = cust.Area;
         }

@@ -6,54 +6,48 @@
 </div>
 <div class="container">
     <div class="dropdown">
-        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" >{{ selectedCust }}
-            <span class="caret" ></span></button>
-        <ul class="dropdown-menu">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" >
+            <span ng-if="itemempty">Select Customer ID</span><span ng-if="!listempty">{{ selectedCust }}</span> <span class="caret" ></span></button>
+        <ul class="dropdown-menu scrollable-menu">
             <li ng-model="selectedCust" ng-click="selected(cust)" ng-repeat="cust in data.data"><a ng-click="dropboxitemselected(cust.CustomerId)">{{ cust.CustomerId }}</a></li>
         </ul>
     </div>
 </div>
-
+<br>
 <div class="container">
     <div class="row">
-        <div class="col-xs-6">
+        <div class="col-6 col-sm-3">
             <div class="form-group">
             <label>Customer Id</label>
             <input type="text" class="form-control" ng-model="cust_id" placeholder="Customer ID">
         </div>
         </div>
-        <div class="col-xs-6">
+        <div class="col-6 col-sm-3">
             <div class="form-group">
                 <label>Customer Age</label>
                 <input type="text" class="form-control" ng-model="cust_age" placeholder="Customer Age">
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-6">
+        <div class="col-6 col-sm-3">
         <div class="form-group">
             <label>Customer Gender</label>
             <input type="text" class="form-control" ng-model="cust_gender" placeholder="Gender">
         </div>
         </div>
-        <div class="col-xs-6">
+        <div class="col-6 col-sm-3">
             <div class="form-group">
                 <label>Customer Region</label>
                 <input type="text" class="form-control" ng-model="cust_region" placeholder="Region">
             </div>
         </div>
     </div>
-
+    <br>
     <button type="submit" class="btn btn-primary" ng-click="submit()">Get Predicted Products</button>
+    <br>
     <div ng-hide="!loading">
         <img src="../img/spinner.gif" height="50" width="50" />
     </div>
-    <!--div id="rounded" ng-hide="!loading1">
-        <ul>
-            <li>Prediction : <b><h1>{{preddata.Results.output1.value.Values[0][9]}}</h1></b></li>
-            <li>{{preddata.Results.output1.value.ColumnNames[7]}} : {{preddata.Results.output1.value.Values[0][7]}}</li>
-            <li>{{preddata.Results.output1.value.ColumnNames[8]}} : {{preddata.Results.output1.value.Values[0][8]}}</li>
-        </ul></div-->
+    <br>
     <div class="carousel-inner">
         <div class="item active">
             <div class="row">
@@ -66,9 +60,9 @@
                             <div class="row">
                                 <div class="price col-md-6">
                                     <h5>
-                                        {{ prd.ProductId}}</h5>
+                                        {{ prd.ProductId }}</h5>
                                     <h5 class="price-text-color">
-                                        {{ prd.Rating}}</h5>
+                                        {{ prd.Rating }}</h5>
                                 </div>
                                 <div class="rating hidden-sm col-md-6">
                                     <i class="price-text-color fa fa-star"></i><i class="price-text-color fa fa-star">
@@ -76,12 +70,12 @@
                                 </i><i class="fa fa-star"></i>
                                 </div>
                             </div>
-                            <div class="separator clear-left">
+                            <!--div class="separator clear-left">
                                 <p class="btn-add">
                                     <i class="fa fa-shopping-cart"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">Add to cart</a></p>
                                 <p class="btn-details">
                                     <i class="fa fa-list"></i><a href="http://www.jquery2dotnet.com" class="hidden-sm">More details</a></p>
-                            </div>
+                            </div-->
                             <div class="clearfix">
                             </div>
                         </div>

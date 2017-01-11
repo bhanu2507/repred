@@ -9,13 +9,14 @@ angular.module('repred')
             .success(function (data){
             $scope.customer = data;
         });*/
+        $scope.itemempty = true;
         $http.get('/getmvcustlist')
             .then(function (data) {
-                console.log(data);
+                //console.log(data);
                $scope.data = data;
                // console.log('here' + data[0][1].length);
             },function (error){
-console.log('error' + error);
+                console.log('error' + error);
                 }
             );
 
@@ -67,6 +68,7 @@ console.log('error' + error);
             };*/
         }
         $scope.selected= function(cust){
+            $scope.itemempty = false;
             $scope.selectedCust = cust.userId;
             $scope.cust_id = cust.userId;
             $scope.cust_age = cust.age;
