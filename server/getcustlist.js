@@ -15,7 +15,7 @@ exports.getcustlist = function(req, res) {
     };
 
     http.get(options, function(res1) {
-        console.log("Got response: " + res.statusCode);
+        //console.log("Got response: " + res.statusCode);
         var results = "";
         res1.on("data", function(chunk) {
             //console.log("BODY: " + chunk);

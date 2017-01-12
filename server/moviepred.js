@@ -23,7 +23,7 @@ exports.getmvcustlist = function(req, res) {
             results += chunk;
         });
         res1.on('end', function(){
-            console.log(results.data);
+            //console.log(results.data);
             res.send(results);
         });
     }).on('error', function(e) {
