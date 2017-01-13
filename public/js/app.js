@@ -10,5 +10,6 @@ angular.module('repred', [
     'ngResource',
     'ngRoute',
     'ngAnimate',
-    'ngSanitize'
+    'ngSanitize',
+    'nvd3'
 ]);
