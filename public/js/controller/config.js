@@ -11,6 +11,8 @@ angular.module('repred')
                 height: 450,
                 width: (function(){ return nv.utils.windowSize().width })(),
                 margin:{top: 20, right: 20, bottom: 20, left: 20},
+                radius:7,
+                gravity:0.1,
                 color: function(d){
                     return color(d.group)
                 },
@@ -20,21 +22,41 @@ angular.module('repred')
                         .attr("dx", 8)
                         .attr("dy", ".35em")
                         .text(function(d) { return d.name })
-                        .style('font-size', '10px');
+                        .style('font-size', '11px');
                 }
             }
         };
-        /*
+        var nodearray = [];
+        var linkarray = [];
+        var finalarray = { nodes: [],links:[]};
+        var count = 0;
         $http.get('/neorelations')
             .then(function (data) {
-                    console.log(data.data[0].p);
-                    $scope.data = data.data[0].p;
-                    // console.log('here' + data[0][1].length);
-                },function (error){
-                    console.log('error' + error);
+                console.log(data);
+                for (var i = 0; i < data.data.length; i++) {
+                    if (data.data[i].VOLID.length>1) {
+                        var source = count++;
+                        var item = {'name': data.data[i].VMID, 'group': 1};
+                        finalarray.nodes.push(item);
+                        for (var j = 0; j < data.data[i].VOLID.length; j++) {
+                            var item = {'name': data.data[i].VOLID[j], 'group': 2};
+                            var item1 = {"source": source, "target": count, "value": 1};
+                            finalarray.nodes.push(item);
+                            finalarray.links.push(item1);
+                            count++;
+                        }
+                    }
                 }
-            );
-        */
+                 // linkarray.push({"source":1,"target":0,"value":1});
+
+                console.log(JSON.stringify(finalarray));
+                $scope.data = finalarray;
+                }),function (error) {
+                    console.log('error' + error);
+                 };
+                });
+
+/*
         $scope.data = {
             "nodes":[
                 {"name":"Myriel","group":1},
@@ -372,4 +394,4 @@ angular.module('repred')
                 {"source":76,"target":58,"value":1}
             ]
         }
-    });
+    });*/

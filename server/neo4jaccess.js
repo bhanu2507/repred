@@ -10,7 +10,8 @@ exports.getrelations = function(req, res) {
         params: {
             email: 'alice@example.com',
         },*/
-        query: 'MATCH p=()-[r:ATTACHED]->() RETURN p LIMIT 25'
+       // query: 'MATCH p=()-[r:ATTACHED]->() RETURN p LIMIT 25'
+        query: 'MATCH (vm:VIRTUALSERVER)-[:ATTACHED]->(storage:STORAGE) RETURN vm.vmId AS VMID, collect(storage.volumeId) AS VOLID LIMIT 200'
     }, function (err, results) {
         if (err) throw err;
         var result = results[0];
@@ -19,7 +20,7 @@ exports.getrelations = function(req, res) {
         } else {
             var user = result['p'];
             //console.log(JSON.stringify(user, null, 4));
-            console.log(results)
+            //console.log(results);
             res.send(results);
         }
     });
