@@ -1,0 +1,26 @@
+<div class="jumbotron">
+    <div class="container">
+        <h3>Job Details</h3>
+        <p>Detail listing of Jobs</p>
+    </div>
+</div>
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Job ID</th>
+            <th>Project Name</th>
+            <th>Parent Job</th>
+            <th>Status</th>
+            <th>Creation Date</th>
+        </tr>
+        </thead>
+        <tr ng-repeat="job in data">
+            <td>{{job.jobid}}</td>
+            <td>{{job.project_name}}</td>
+            <td>{{job.parent_job}}</td>
+            <td>{{job.status}}</td>
+            <td>{{job.creation_date | date}}</td>
+        </tr>
+    </table>
+</div>

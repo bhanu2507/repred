@@ -20,5 +20,10 @@ angular.module("repred")
             .when('/config', {
                 templateUrl : 'view/config.html',
                 controller : 'configcontroller'
+            })
+            .when('/jobs', {
+                templateUrl : 'view/joblist.html',
+                controller : 'joblistctrl'
             });
+
     }]);
