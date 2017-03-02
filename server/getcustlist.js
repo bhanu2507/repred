@@ -26,7 +26,7 @@ exports.getcustlist = function(req, res) {
             res.send(results);
         });
     }).on('error', function(e) {
-        console.log("Got error: " + e.message);
+        //console.log("Got error: " + e.message);
     });
 
 };

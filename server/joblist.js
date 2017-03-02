@@ -23,11 +23,11 @@ exports.getjoblist = function(req, res) {
             results += chunk;
         });
         res1.on('end', function(){
-            //console.log(results);
+           //console.log(results);
             res.send(results);
         });
     }).on('error', function(e) {
-        console.log("Got error: " + e.message);
+       // console.log("Got error: " + e.message);
     });
 
 };
