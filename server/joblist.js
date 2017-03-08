@@ -10,7 +10,7 @@ var fs = require('fs');
 exports.getjoblist = function(req, res) {
 
     var options = {
-        host: '110.110.110.164',
+        host: 'localhost',
         port: 5000,
         path: '/getjobdetails'
     };
